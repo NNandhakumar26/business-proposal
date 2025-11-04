@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Management Solution Proposal - Inzeph Software Ventures</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f7fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+        }
+
+        /* Header Section */
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .company-logo {
+            font-size: 42px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .company-gstin {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header p {
+            font-size: 18px;
+            opacity: 0.95;
+        }
+
+        /* Content Sections */
+        .section {
+            padding: 50px 40px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .section-icon {
+            font-size: 48px;
+            margin-right: 20px;
+        }
+
+        .section-title {
+            font-size: 32px;
+            color: #1f2937;
+            font-weight: 600;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: #6b7280;
+            margin-top: 5px;
+        }
+
+        /* Feature Cards */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .feature-card {
+            background: #f9fafb;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-color: #667eea;
+        }
+
+        .feature-icon {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .feature-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 10px;
+        }
+
+        .feature-description {
+            font-size: 15px;
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        .feature-description ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+
+        .feature-description li {
+            padding: 6px 0;
+            position: relative;
+            padding-left: 20px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .feature-description li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            top: 6px;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        /* Workflow Diagram */
+        .workflow-container {
+            background: #f9fafb;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .workflow-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .workflow-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+            align-items: start;
+            max-width: 100%;
+        }
+
+        .workflow-step {
+            text-align: center;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .workflow-step-circle {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border: 4px solid #667eea;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            margin: 0 auto 15px;
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.25);
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .workflow-step:hover .workflow-step-circle {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.35);
+            border-color: #764ba2;
+        }
+
+        .workflow-step-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 5px;
+            min-height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .workflow-step-desc {
+            font-size: 12px;
+            color: #6b7280;
+            min-height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .workflow-arrow {
+            display: none;
+        }
+
+        /* Add arrow indicators using CSS */
+        .workflow-step:not(:last-child)::after {
+            content: '→';
+            position: absolute;
+            right: -20px;
+            top: 35px;
+            font-size: 20px;
+            color: #9ca3af;
+            z-index: 1;
+        }
+
+        /* Benefits List */
+        .benefits-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .benefits-list li {
+            padding: 15px;
+            margin-bottom: 10px;
+            background: #f0fdf4;
+            border-left: 4px solid #10b981;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        .benefits-list li::before {
+            content: "✓ ";
+            color: #10b981;
+            font-weight: bold;
+            font-size: 18px;
+            margin-right: 10px;
+        }
+
+        /* Future Features */
+        .future-feature {
+            background: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 6px;
+        }
+
+        .future-feature-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #92400e;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .future-feature-title::before {
+            content: "🚀 ";
+            margin-right: 8px;
+        }
+
+        .future-feature-desc {
+            font-size: 15px;
+            color: #78350f;
+            margin-bottom: 8px;
+        }
+
+        .future-feature-example {
+            font-size: 14px;
+            color: #451a03;
+            font-style: italic;
+            background: #fef3c7;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+        /* Pricing/Options Section */
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .option-card {
+            background: white;
+            border: 3px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .option-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+        }
+
+        .option-card.recommended {
+            border-color: #667eea;
+            background: linear-gradient(135deg, #f8f9ff 0%, #f0f2ff 100%);
+        }
+
+        .option-badge {
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .option-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 20px;
+        }
+
+        .option-features {
+            list-style: none;
+            text-align: left;
+            margin: 20px 0;
+        }
+
+        .option-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #e5e7eb;
+            font-size: 15px;
+            color: #4b5563;
+        }
+
+        .option-features li::before {
+            content: "✓";
+            color: #10b981;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* Call to Action */
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .cta-title {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .cta-description {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            background: white;
+            color: #667eea;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        /* Footer */
+        .footer {
+            background: #1f2937;
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-title {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .footer-details {
+            font-size: 14px;
+            opacity: 0.8;
+            line-height: 1.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header {
+                padding: 40px 20px;
+            }
+
+            .header h1 {
+                font-size: 28px;
+            }
+
+            .section {
+                padding: 30px 20px;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+
+            .workflow-steps {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 25px 10px;
+            }
+
+            .workflow-step:not(:last-child)::after {
+                display: none;
+            }
+
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .workflow-steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+            }
+
+            .feature-card:hover,
+            .option-card:hover {
+                transform: none;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="company-logo">INZEPH SOFTWARE VENTURES</div>
+            <div class="company-gstin">GSTIN: 33CEUPN7008B1ZJ | Email: nandha@inzeph.com</div>
+            <h1>Mobile-First Sales & Service Integration Platform</h1>
+            <p>Transforming Your Sales & Service Business into a Modern Digital Powerhouse</p>
+        </div>
+
+        <!-- Introduction Section -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">🎯</div>
+                <div>
+                    <div class="section-title">Why This App is Perfect for Your Business</div>
+                    <div class="section-subtitle">Streamline operations and eliminate fragmented workflows across multiple platforms</div>
+                </div>
+            </div>
+            <ul class="benefits-list">
+                <li><strong>Mobile-First Design:</strong> Designed specifically for your phone - manage everything on the go</li>
+                <li><strong>Lightning Fast:</strong> Smart caching mechanism at appropriate places to make it faster to use</li>
+                <li><strong>Simple & Easy:</strong> Easier than managing spreadsheets and WhatsApp messages</li>
+                <li><strong>Smart Reports:</strong> Get clear insights to make better business decisions</li>
+                <li><strong>Cloud Powered:</strong> Your data is safe, backed up, and accessible anywhere</li>
+            </ul>
+        </div>
+
+        <!-- Core Features Section -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">⚡</div>
+                <div>
+                    <div class="section-title">Core Features</div>
+                    <div class="section-subtitle">Everything you need to run your business smoothly</div>
+                </div>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <div class="feature-title">Customer Management</div>
+                    <div class="feature-description">
+                        <ul>
+                            <li>Store customer details, phone numbers, and addresses</li>
+                            <li>Complete purchase history tracking</li>
+                            <li>Add custom tags like #VIP, #SecondHandBuyer</li>
+                            <li>Easy customer organization and segmentation</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👔</div>
+                    <div class="feature-title">Employee Tracking</div>
+                    <div class="feature-description">
+                        <ul>
+                            <li>Track check-in and check-out times</li>
+                            <li>Monitor sales performance per employee</li>
+                            <li>View employee-wise service job handling</li>
+                            <li>Complete activity history for each staff member</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📦</div>
+                    <div class="feature-title">Inventory Management</div>
+                    <div class="feature-description">
+                        <ul>
+                            <li>Track stock levels in real-time</li>
+                            <li>Organize by categories (Phones, Accessories, Parts)</li>
+                            <li>Automatic stock deduction on sales</li>
+                            <li>Low stock alerts and notifications</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔧</div>
+                    <div class="feature-title">Service Job Tracking</div>
+                    <div class="feature-description">
+                        <ul>
+                            <li>Create detailed repair tickets with problem descriptions</li>
+                            <li>Track work progress and status updates</li>
+                            <li>Set priority levels (High, Medium, Low)</li>
+                            <li>Auto WhatsApp updates to customers on start and completion</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <div class="feature-title">WhatsApp Automation</div>
+                    <div class="feature-description">
+                        <ul>
+                            <li>Service confirmation with expected completion date</li>
+                            <li>Automatic completion notifications</li>
+                            <li>GST invoice delivery after payment</li>
+                            <li>Keep customers informed without manual effort</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧾</div>
+                    <div class="feature-title">GST Invoicing</div>
+                    <div class="feature-description">
+                        <ul>
+                            <li>Generate professional tax invoices automatically</li>
+                            <li>All GST-compliant required fields included</li>
+                            <li>PDF generation with shop and customer details</li>
+                            <li>Instant WhatsApp delivery after payment</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <div class="feature-title">Real-Time Sync</div>
+                    <div class="feature-description">
+                        <ul>
+                            <li>All data syncs instantly to the cloud</li>
+                            <li>Check stock levels from anywhere</li>
+                            <li>Access customer history on the go</li>
+                            <li>View reports with internet connection</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Workflow 1: Retail Sales -->
+        <div class="section" style="background: #f9fafb;">
+            <div class="section-header">
+                <div class="section-icon">🛒</div>
+                <div>
+                    <div class="section-title">Workflow 1: Quick Retail Sales</div>
+                    <div class="section-subtitle">Sell products in seconds with automated billing</div>
+                </div>
+            </div>
+            <div class="workflow-container">
+                <div class="workflow-steps">
+                    <div class="workflow-step">
+                        <div class="workflow-step-circle">🛍️</div>
+                        <div class="workflow-step-label">Add Items</div>
+                        <div class="workflow-step-desc">Select products from inventory</div>
+                    </div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-step">
+                        <div class="workflow-step-circle">📝</div>
+                        <div class="workflow-step-label">Generate Invoice</div>
+                        <div class="workflow-step-desc">Automatic GST invoice creation</div>
+                    </div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-step">
+                        <div class="workflow-step-circle">💰</div>
+                        <div class="workflow-step-label">Receive Payment</div>
+                        <div class="workflow-step-desc">Record payment method</div>
+                    </div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-step">
+                        <div class="workflow-step-circle">📱</div>
+                        <div class="workflow-step-label">Send Bill</div>
+                        <div class="workflow-step-desc">Auto-send via WhatsApp</div>
+                    </div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-step">
+                        <div class="workflow-step-circle">✅</div>
+                        <div class="workflow-step-label">Delivery</div>
+                        <div class="workflow-step-desc">Mark as delivered</div>
+                    </div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-step">
+                        <div class="workflow-step-circle">⭐</div>
+                        <div class="workflow-step-label">Feedback</div>
+                        <div class="workflow-step-desc">Request customer rating</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Workflow 2: Service/Repair -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">🔧</div>
+                <div>
+                    <div class="section-title">Workflow 2: Service & Repair Jobs</div>
+                    <div class="section-subtitle">Professional job tracking with automatic customer updates</div>
+                </div>
+            </div>
+            <div class="workflow-container">
+                <div class="workflow-steps">
+                    <div class="workflow-step">
+                        <div class="workflow-step-circle">📞</div>
+                        <div class="workflow-step-label">Service Request</div>
+                        <div class="workflow-step-desc">Create repair ticket</div>
+                    </div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-step">
+                        <div class="workflow-step-circle">📲</div>
+                        <div class="workflow-step-label">Auto WhatsApp</div>
+                        <div class="workflow-step-desc">Confirm receipt & timeline</div>
+                    </div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-step">
+                        <div class="workflow-step-circle">🛒</div>
+                        <div class="workflow-step-label">Purchase Order</div>
+                        <div class="workflow-step-desc">Order parts (if needed)</div>
+                    </div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-step">
+                        <div class="workflow-step-circle">⚙️</div>
+                        <div class="workflow-step-label">Work in Progress</div>
+                        <div class="workflow-step-desc">Repair underway</div>
+                    </div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-step">
+                        <div class="workflow-step-circle">✨</div>
+                        <div class="workflow-step-label">Completed</div>
+                        <div class="workflow-step-desc">Work finished</div>
+                    </div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-step">
+                        <div class="workflow-step-circle">📱</div>
+                        <div class="workflow-step-label">Auto WhatsApp</div>
+                        <div class="workflow-step-desc">Ready for collection</div>
+                    </div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-step">
+                        <div class="workflow-step-circle">💳</div>
+                        <div class="workflow-step-label">Payment</div>
+                        <div class="workflow-step-desc">Collect payment</div>
+                    </div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-step">
+                        <div class="workflow-step-circle">📨</div>
+                        <div class="workflow-step-label">Bill via WhatsApp</div>
+                        <div class="workflow-step-desc">Auto-send GST invoice</div>
+                    </div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-step">
+                        <div class="workflow-step-circle">⭐</div>
+                        <div class="workflow-step-label">Feedback</div>
+                        <div class="workflow-step-desc">Rate service</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- WhatsApp Automation Details -->
+            <div style="margin-top: 30px; background: #ecfdf5; border-left: 4px solid #10b981; padding: 20px; border-radius: 8px;">
+                <h3 style="color: #065f46; margin-bottom: 15px; font-size: 20px;">📱 Automatic WhatsApp Updates</h3>
+                <div style="margin-bottom: 15px;">
+                    <strong style="color: #047857;">1. Service Request Confirmation:</strong>
+                    <div style="font-style: italic; color: #065f46; margin-top: 8px; padding: 10px; background: #d1fae5; border-radius: 6px;">
+                        "Hello Rajesh, we've received your iPhone 15 for screen replacement service. Expected completion: 3 days (15th Jan). We'll notify you once it's ready. - Your Shop Name"
+                    </div>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <strong style="color: #047857;">2. Completion Notification:</strong>
+                    <div style="font-style: italic; color: #065f46; margin-top: 8px; padding: 10px; background: #d1fae5; border-radius: 6px;">
+                        "Good news! Your iPhone 15 screen replacement is completed. Please visit our shop to collect your device and make payment. - Your Shop Name"
+                    </div>
+                </div>
+                <div>
+                    <strong style="color: #047857;">3. Bill Delivery After Payment:</strong>
+                    <div style="font-style: italic; color: #065f46; margin-top: 8px; padding: 10px; background: #d1fae5; border-radius: 6px;">
+                        "Thank you for your payment! Here's your GST invoice. [PDF attached]"
+                    </div>
+                </div>
+            </div>
+
+            <!-- Purchase Order Note -->
+            <div style="margin-top: 20px; background: #fef3c7; border-left: 4px solid #f59e0b; padding: 20px; border-radius: 8px;">
+                <h3 style="color: #92400e; margin-bottom: 10px; font-size: 18px;">🛒 Optional: Purchase Order to Suppliers</h3>
+                <p style="color: #78350f; font-size: 15px;">
+                    If spare parts or components are needed for the repair, you can create a purchase order to your supplier directly from the service request. This step is optional and only used when required.
+                </p>
+            </div>
+        </div>
+
+        <!-- Analytics Section -->
+        <div class="section" style="background: #fffbeb;">
+            <div class="section-header">
+                <div class="section-icon">📈</div>
+                <div>
+                    <div class="section-title">Smart Business Analytics <span style="background: #f59e0b; color: white; padding: 5px 12px; border-radius: 20px; font-size: 14px; margin-left: 10px;">Version 2</span></div>
+                    <div class="section-subtitle">Make data-driven decisions with powerful insights</div>
+                </div>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">👤</div>
+                    <div class="feature-title">Customer Reports</div>
+                    <div class="feature-description">
+                        <ul>
+                            <li>View total sales per customer</li>
+                            <li>Categorize by total sales vs total services</li>
+                            <li>Sortable "Top 25 Customers" list</li>
+                            <li>Identify customers for loyalty discounts</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👨‍💼</div>
+                    <div class="feature-title">Employee Performance</div>
+                    <div class="feature-description">
+                        <ul>
+                            <li>Track sales by each employee</li>
+                            <li>Average customer satisfaction ratings</li>
+                            <li>Performance evaluation metrics</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <div class="feature-title">Device-Specific History</div>
+                    <div class="feature-description">
+                        <ul>
+                            <li>Select any device model (e.g., "iPhone 14")</li>
+                            <li>View all issues/services across all customers</li>
+                            <li>Aggregated service counts per issue type</li>
+                            <li>Example: Battery Replacement (15), Screen Repair (9)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔧</div>
+                    <div class="feature-title">Service Analytics</div>
+                    <div class="feature-description">
+                        <ul>
+                            <li>Most common repairs and issues</li>
+                            <li>Average service completion times</li>
+                            <li>Revenue comparison: services vs products</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Future Features -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">🚀</div>
+                <div>
+                    <div class="section-title">Future Features (Version 2)</div>
+                    <div class="section-subtitle">Exciting advanced features coming soon</div>
+                </div>
+            </div>
+
+            <div class="future-feature">
+                <div class="future-feature-title">Automated Follow-Up Reminders</div>
+                <div class="future-feature-desc">The app automatically reminds customers when it's time to buy a replacement or upgrade. For example, if someone bought a phone case that typically lasts 5 months, the app will send them a message after 5 months.</div>
+                <div class="future-feature-example">📱 "Hi Rajesh, it's been about 5 months since you bought your phone case. We've got new designs in stock if you're looking for an upgrade!"</div>
+            </div>
+
+            <div class="future-feature">
+                <div class="future-feature-title">Automated Loyalty Program</div>
+                <div class="future-feature-desc">When customers reach a certain purchase amount, they automatically get loyalty status with special discounts. The system tracks everything automatically.</div>
+            </div>
+
+            <div class="future-feature">
+                <div class="future-feature-title">Customer Polls & Surveys</div>
+                <div class="future-feature-desc">Ask customers what products they want before you stock them. Send polls via WhatsApp and track responses to make smarter inventory decisions.</div>
+                <div class="future-feature-example">📊 "We're thinking of stocking transparent cases for your Oppo A35. Would you be interested? [Yes] [No]"</div>
+            </div>
+
+            <div class="future-feature">
+                <div class="future-feature-title">Tag-Based Marketing Campaigns</div>
+                <div class="future-feature-desc">Send targeted WhatsApp messages to specific customer groups. For example, send new second-hand phone arrivals only to customers tagged as #SecondHandBuyer.</div>
+                <div class="future-feature-example">📢 "New release of second-hand iPhones now in stock! Visit us before they're gone."</div>
+            </div>
+
+            <div class="future-feature">
+                <div class="future-feature-title">Smart Cross-Selling</div>
+                <div class="future-feature-desc">Automatically identify customers who bought phones but didn't buy accessories, and send them targeted offers.</div>
+                <div class="future-feature-example">🎁 "Hi Priya, we hope you're enjoying your iPhone 15. We've got new cases in stock for it. Get 10% off this week!"</div>
+            </div>
+
+            <div class="future-feature">
+                <div class="future-feature-title">Stock Clearance Alerts</div>
+                <div class="future-feature-desc">When you need to clear old stock, the app finds all customers who own that device model and sends them special offers.</div>
+                <div class="future-feature-example">🏷️ "Hi Kumar, we're having a stock clearance sale on all cases for the Oppo A35. Get 50% off this weekend only!"</div>
+            </div>
+
+            <div class="future-feature">
+                <div class="future-feature-title">Automated Review Requests</div>
+                <div class="future-feature-desc">When customers give 4 or 5-star ratings, automatically ask them to leave a Google Review to boost your online reputation.</div>
+                <div class="future-feature-example">⭐ "Thanks for the 5-star rating! Could you take 30 seconds to leave us a Google Review? [Link]"</div>
+            </div>
+
+            <div class="future-feature">
+                <div class="future-feature-title">Supplier & Purchase Order Management</div>
+                <div class="future-feature-desc">Manage your suppliers, create purchase orders, and track incoming inventory all in one place.</div>
+            </div>
+        </div>
+
+        <!-- Implementation Options -->
+        <div class="section" style="background: #f9fafb;">
+            <div class="section-header">
+                <div class="section-icon">💼</div>
+                <div>
+                    <div class="section-title">Implementation Options</div>
+                    <div class="section-subtitle">Choose the package that fits your needs</div>
+                </div>
+            </div>
+            <div class="options-grid">
+                <div class="option-card">
+                    <div class="option-title">🎯 Version 1 (Essential)</div>
+                    <ul class="option-features">
+                        <li>Mobile-first app design</li>
+                        <li>Customer management with tags</li>
+                        <li>Employee tracking & performance</li>
+                        <li>Inventory management</li>
+                        <li>Retail sales workflow</li>
+                        <li>Service/repair job tracking</li>
+                        <li>GST invoice generation</li>
+                        <li>WhatsApp bill delivery</li>
+                        <li>Automatic WhatsApp notifications</li>
+                        <li>Cloud database</li>
+                        <li>Offline caching</li>
+                    </ul>
+                </div>
+                <div class="option-card recommended">
+                    <div class="option-badge">RECOMMENDED</div>
+                    <div class="option-title">🚀 Version 2 (Complete)</div>
+                    <ul class="option-features">
+                        <li><strong>Everything in Version 1, plus:</strong></li>
+                        <li>Business analytics dashboard</li>
+                        <li>Automated follow-up reminders</li>
+                        <li>Loyalty program automation</li>
+                        <li>Customer polls & surveys</li>
+                        <li>Tag-based marketing campaigns</li>
+                        <li>Smart cross-selling</li>
+                        <li>Stock clearance alerts</li>
+                        <li>Automated review requests</li>
+                        <li>Supplier management</li>
+                        <li>Purchase order system</li>
+                        <li>Advanced marketing automation</li>
+                    </ul>
+                </div>
+                <div class="option-card">
+                    <div class="option-title">🎨 Custom Package</div>
+                    <ul class="option-features">
+                        <li>Start with Version 1 essentials</li>
+                        <li>Add specific Version 2 features</li>
+                        <li>Custom integrations</li>
+                        <li>Tailored workflows</li>
+                        <li>On-premise deployment option</li>
+                        <li>Custom reporting needs</li>
+                        <li>Additional modules</li>
+                        <li>Flexible scaling</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technical Highlights -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">⚙️</div>
+                <div>
+                    <div class="section-title">Technical Excellence</div>
+                    <div class="section-subtitle">Built with modern, reliable technology</div>
+                </div>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">☁️</div>
+                    <div class="feature-title">Cloud-First</div>
+                    <div class="feature-description">All data securely stored in the cloud with automatic backups. Access from anywhere, anytime.</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <div class="feature-title">Mobile Optimized</div>
+                    <div class="feature-description">Designed specifically for mobile devices - not just a desktop app made smaller.</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <div class="feature-title">Smart Caching</div>
+                    <div class="feature-description">Critical data cached locally for lightning-fast access even with slow internet.</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <div class="feature-title">Secure & Reliable</div>
+                    <div class="feature-description">Your business data is encrypted and protected with industry-standard security.</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔗</div>
+                    <div class="feature-title">WhatsApp Integration</div>
+                    <div class="feature-description">Seamless integration with WhatsApp Business API for automated customer communication.</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <div class="feature-title">Scalable Architecture</div>
+                    <div class="feature-description">Grows with your business - from single shop to multiple locations.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-content">
+                <div class="footer-title">INZEPH SOFTWARE VENTURES</div>
+                <div class="footer-details">
+                    GSTIN: 33CEUPN7008B1ZJ<br>
+                    Building innovative software solutions for modern businesses<br>
+                    <br>
+                    © 2025 Inzeph Software Ventures. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
